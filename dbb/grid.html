@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" type="text/css" href="style.css">
+         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+     <title>DEKH BHAI BRAHMAPUR™</title>
+    <link rel="icon" type="image/png" href="../img/icon.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   
+    <style>
+    
+    :root{ --main-color: #230338; }
+.product-grid{
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+
+}
+.product-grid .product-image{
+    overflow: hidden;
+    position: relative;
+        box-shadow: 2px 2px 2px 2px rgba(0,0,0);
+}
+.product-grid .product-image:before{
+    content: "";
+    background: rgba(0,0,0,0.3);
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    transition: all 0.4s ease-out 0s;
+}
+.product-grid:hover .product-image:before{ opacity: 1; }
+.product-grid .product-image a{ display: block; }
+.product-grid .product-image img{
+    width: 100%;
+    height: auto;
+}
+.product-image .pic-1{
+    opacity: 1;
+    backface-visibility: hidden;
+    transition: all 0.4s ease-out 0s;
+}
+.product-grid:hover .product-image .pic-1{ opacity: 0; }
+.product-image .pic-2{
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    backface-visibility: hidden;
+    transform: scale(3);
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 0.4s ease-out 0s;
+}
+.product-grid:hover .product-image .pic-2 {
+    opacity: 1;
+    transform: scale(1);
+}
+.product-image .product-trend-label,
+.product-image .product-discount-label{
+    content: "";
+    color: #f9f9f9;
+    background-color: #2ecc71;
+    font-size: 12px;
+    line-height: 28px;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 0 7px;
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 3;
+}
+.product-image .product-discount-label{
+    background-color: var(--main-color);
+    left: auto;
+    right: 12px;
+}
+.product-grid .social {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    transform: translateY(-50%);
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    z-index: 4;
+}
+.product-grid .social li {
+    margin: 0 0 12px;
+    opacity: 0;
+    transform: translateX(-60px);
+    transition: transform .3s ease-out 0s;
+}
+.product-grid:hover .social li {
+    opacity: 1;
+    transform: translateX(0);
+}
+.product-grid:hover .social li:nth-child(2){ transition-delay: 0.1s; }
+.product-grid:hover .social li:nth-child(3){ transition-delay: 0.2s; }
+.product-grid:hover .social li:nth-child(4){ transition-delay: 0.3s; }
+.product-grid .social li a {
+    color: #fff;
+    font-size: 22px;
+    transition: all 0.3s;
+}
+.product-grid .social li a:hover { color: var(--main-color); }
+.product-grid .social li a:before,
+ .product-grid .social li a:after{
+    content: attr(data-tip);
+    color: #000;
+    background: #fff;
+    font-size: 14px;
+    padding: 5px 10px;
+    white-space: nowrap;
+    display: none;
+    transform: translateY(-50%);
+    position: absolute;
+    left: 33px;
+    top: 50%;
+    transition: all 0.3s;
+}
+.product-grid .social li a:after{
+    content: '';
+    background: linear-gradient(-45deg, #fff 49%, transparent 50%);
+    width: 10px;
+    height: 10px;
+    top: 40%;
+    left: 20px;
+}
+.product-grid .social li a:hover:before,
+.product-grid .social li a:hover:after{
+      display: block;
+}
+.product-grid .product-content{
+    padding: 12px 0;}
+   .product-grid .product-content h3 title a{
+        text-decoration-color: #fff;
+    }
+.product-grid .title{
+    font-size: 15px;
+    font-weight: 400;
+
+    text-transform: capitalize;
+    margin: 0 0 5px;
+}
+.product-grid .title a{ color: #f9f9f9; }
+.product-grid .title a:hover{ color: var(--main-color); }
+ .product-grid .price span{
+    color: #333;
+    text-decoration: line-through;
+    margin-right: 3px;
+}
+ @media only screen and (max-width:990px){
+    .product-grid{ margin-bottom: 30px; }
+}
+     #myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+}
+
+    </style>
+</head>
+<body>   
+<video autoplay muted loop id="myVideo">
+  <source src="bgm3.mp4" type="video/mp4">
+</video>
+
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top text-muted">
+            <div class="container">
+  <a class="navbar-brand" href="#">DEKH BHAI BRAHMAPUR</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-lg-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="index2.html">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="About.html">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="News.html">News</a>
+      </li>  
+      <li class="nav-item">
+        <a class="nav-link" href="posts.html">Blog</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#Food">Food</a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link" href="index2.html">Contact</a>
+      </li>
+
+    </ul>
+     </div>
+    </div>
+</nav>
+   <br><br> 
+
+
+    <div class="container">
+    <div class="row">
+        <div class="col-md-3 col-sm-6">
+            <div class="product-grid">
+                <div class="product-image">
+                    <a href="#">
+                        <img class="pic-1" src="food/bc1.jpg">
+                        <img class="pic-2" src="food/bc2.jpg">
+                    </a>
+                      </div>
+                <div class="product-content">
+                    <h3 class="title"><a href="#"><b>Hotel Bhubaneswari Classic</b></a></h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <div class="product-grid">
+                <div class="product-image">
+                    <a href="#">
+                        <img class="pic-1" src="food/nbc1.jpg" >
+                        <img class="pic-2" src="food/nbc2.jpg" >
+                    </a>
+                      
+                </div>
+                <div class="product-content">
+                    <h3 class="title"><a href="#"><b>New Biriyani Center</b></a></h3>
+                     
+                </div>
+            </div>
+        </div>           
+           <div class="col-md-3 col-sm-6">
+            <div class="product-grid">
+                <div class="product-image">
+                    <a href="#">
+                        <img class="pic-1" src="food/n1.jpg"  >
+                        <img class="pic-2" src="food/n2.jpg"  >
+                    </a>
+                     
+                </div>
+                <div class="product-content">
+                    <h3 class="title"><a href="#"><b>Hotel Nandan</b></a></h3>
+                    
+                </div>
+            </div>
+        </div> 
+           <div class="col-md-3 col-sm-6">
+            <div class="product-grid">
+                <div class="product-image">
+                    <a href="#">
+                        <img class="pic-1" src="food/atr1.jpg">
+                        <img class="pic-2" src="food/atr2.jpg">
+                    </a>
+                    
+                    
+                </div>
+                <div class="product-content">
+                    <h3 class="title"><a href="#"><b> Athithi inn Restaurant</b></a></h3>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-md-3 col-sm-6">
+            <div class="product-grid">
+                <div class="product-image">
+                    <a href="#">
+                        <img class="pic-1" src="food/bcr1.jpg">
+                        <img class="pic-2" src="food/bcr2.jpeg">
+                    </a>
+                    
+                </div>
+                <div class="product-content">
+                    <h3 class="title"><a href="#"><b>Broccoli Multi Cuisine Restaurant</b></a></h3>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <div class="product-grid">
+                <div class="product-image">
+                    <a href="#">
+                        <img class="pic-1" src="food/bk1.jpg">
+                        <img class="pic-2" src="food/bk2.jpg">
+                    </a>
+                    
+                </div>
+                <div class="product-content">
+                    <h3 class="title"><a href="#"><b>Bombay Kitchen </b></a></h3>
+
+                </div>
+            </div>
+        </div>
+
+           <div class="col-md-3 col-sm-6">
+            <div class="product-grid">
+                <div class="product-image">
+                    <a href="#">
+                        <img class="pic-1" src="food/cgr1.jpg">
+                        <img class="pic-2" src="food/cgr2.jpg">
+                    </a>
+                     
+                </div>
+                <div class="product-content">
+                    <h3 class="title"><a href="#"><b>China Garden</b></a></h3>
+                </div>
+            </div>
+        </div> 
+              <div class="col-md-3 col-sm-6">
+            <div class="product-grid">
+                <div class="product-image">
+                    <a href="#">
+                        <img class="pic-1" src="food/dbr1.jpg"style="width: 118%">
+                        <img class="pic-2" src="food/dbr2.jpg"style="width: 118%">
+                    </a>
+                    
+                </div>
+                <div class="product-content">
+                    <h3 class="title"><a href="#"><b>Hotel Durga Bhavan</b></a></h3>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="row">
+        <div class="col-md-3 col-sm-6">
+            <div class="product-grid">
+                <div class="product-image">
+                    <a href="#">
+                        <img class="pic-1" src="food/dr1.jpg">
+                        <img class="pic-2" src="food/dr2.jpg">
+                    </a>
+                    
+                </div>
+                <div class="product-content">
+                    <h3 class="title"><a href="#"><b>Dominique Restaurant</b></a></h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <div class="product-grid">
+                <div class="product-image">
+                    <a href="#">
+                        <img class="pic-1" src="food/gr1.jpg">
+                        <img class="pic-2" src="food/gr2.jpg">
+                    </a>
+                    
+                </div>
+                <div class="product-content">
+                    <h3 class="title"><a href="#"><b>Girija Restaurant</b></a></h3>
+                </div>
+            </div>
+        </div>
+           <div class="col-md-3 col-sm-6">
+            <div class="product-grid">
+                <div class="product-image">
+                    <a href="#">
+                        <img class="pic-1" src="food/hcr1.jpg">
+                        <img class="pic-2" src="food/hcr2.jpg">
+                    </a>
+                    
+                </div>
+                <div class="product-content">
+                    <h3 class="title"><a href="#"><b>A Highway cafe & Restaurant</b></a></h3>
+                </div>
+            </div>
+        </div> 
+          
+              <div class="col-md-3 col-sm-6">
+            <div class="product-grid">
+                <div class="product-image">
+                    <a href="#">
+                        <img class="pic-1" src="food/ki1.jpg">
+                        <img class="pic-2" src="food/ki2.jpg">
+                    </a>
+                    
+                </div>
+                <div class="product-content">
+                    <h3 class="title"><a href="#"><b>Kama's inn Restaurant</b></a></h3>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="row">
+        <div class="col-md-3 col-sm-6">
+            <div class="product-grid">
+                <div class="product-image">
+                    <a href="#">
+                        <img class="pic-1" src="food/mhm1.jpg">
+                        <img class="pic-2" src="food/mhm2.jpg">
+                    </a>
+                    
+                </div>
+                <div class="product-content">
+                    <h3 class="title"><a href="#"><b>Mathi Handi Mutton Hotel</b></a></h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <div class="product-grid">
+                <div class="product-image">
+                    <a href="#">
+                        <img class="pic-1" src="food/nbh1.jpg"style="width: 115%">
+                        <img class="pic-2" src="food/nbh2.jpg">
+                    </a>
+                    
+                </div>
+                <div class="product-content">
+                    <h3 class="title"><a href="#"><b>New Bhabani Hotel</b></a></h3>
+                </div>
+            </div>
+        </div>
+           
+           
+           
+           <div class="col-md-3 col-sm-6">
+            <div class="product-grid">
+                <div class="product-image">
+                    <a href="#">
+                        <img class="pic-1" src="food/ni1.jpg">
+                        <img class="pic-2" src="food/ni2.jpg">
+                    </a>
+                    
+                </div>
+                <div class="product-content">
+                    <h3 class="title"><a href="#"><b>Hotel Nandan International</b></a></h3>
+                </div>
+            </div>
+        </div> 
+           
+            
+              <div class="col-md-3 col-sm-6">
+            <div class="product-grid">
+                <div class="product-image">
+                    <a href="#">
+                        <img class="pic-1" src="food/nmr1.jpg" style="width: 115%">
+                        <img class="pic-2" src="food/nmr2.jpg">
+                    </a>
+                    
+                </div>
+                <div class="product-content">
+                    <h3 class="title"><a href="#"><b>New Merrydine Restaurant</b></a></h3>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="row">
+        <div class="col-md-3 col-sm-6">
+            <div class="product-grid">
+                <div class="product-image">
+                    <a href="#">
+                        <img class="pic-1" src="food/od1.jpg">
+                        <img class="pic-2" src="food/od2.jpg">
+                    </a>
+                    
+                </div>
+                <div class="product-content">
+                    <h3 class="title"><a href="#"><b>OD07 Cafe</b></a></h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <div class="product-grid">
+                <div class="product-image">
+                    <a href="#">
+                        <img class="pic-1" src="food/or1.jpg">
+                        <img class="pic-2" src="food/or2.jpg">
+                    </a>
+                    
+                </div>
+                <div class="product-content">
+                    <h3 class="title"><a href="#"><b>Olive Restaurant</b></a></h3>
+                </div>
+            </div>
+        </div>
+           
+           
+           
+           <div class="col-md-3 col-sm-6">
+            <div class="product-grid">
+                <div class="product-image">
+                    <a href="#">
+                        <img class="pic-1" src="food/rm1.jpg">
+                        <img class="pic-2" src="food/rm2.jpg">
+                    </a>
+                    
+                </div>
+                <div class="product-content">
+                    <h3 class="title"><a href="#"><b>Rolls Mania</b></a></h3>
+                </div>
+            </div>
+        </div> 
+           
+            
+              <div class="col-md-3 col-sm-6">
+            <div class="product-grid">
+                <div class="product-image">
+                    <a href="#">
+                        <img class="pic-1" src="food/sb1.jpg">
+                        <img class="pic-2" src="food/sb2.jpg">
+                    </a>
+                    
+                </div>
+                <div class="product-content">
+                    <h3 class="title"><a href="#"><b>Shankar Bhavan</b></a></h3>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="row">
+        <div class="col-md-3 col-sm-6">
+            <div class="product-grid">
+                <div class="product-image">
+                    <a href="#">
+                        <img class="pic-1" src="food/sr1.jpg">
+                        <img class="pic-2" src="food/sr2.jpg">
+                    </a>
+                    
+                </div>
+                <div class="product-content">
+                    <h3 class="title"><a href="#"><b>Shiraz Golden Restaurant</b></a></h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <div class="product-grid">
+                <div class="product-image">
+                    <a href="#">
+                        <img class="pic-1" src="food/ssh1.jpg">
+                        <img class="pic-2" src="food/ssh2.jpg">
+                    </a>
+                    
+                </div>
+                <div class="product-content">
+                    <h3 class="title"><a href="#"><b>Hotel SatyaSai</b></a></h3>
+                </div>
+            </div>
+        </div>
+           
+           
+           
+           <div class="col-md-3 col-sm-6">
+            <div class="product-grid">
+                <div class="product-image">
+                    <a href="#">
+                        <img class="pic-1" src="food/tbh1.jpg">
+                        <img class="pic-2" src="food/tbh2.jpg">
+                    </a>
+                    
+                </div>
+                <div class="product-content">
+                    <h3 class="title"><a href="#"><b>The Biriyani Hub</b></a></h3>
+                </div>
+            </div>
+        </div> 
+           
+          
+</div>
+
+<footer>
+    <div class="container">
+            <div class="row">
+            <div class="col-sm-12">
+                <ul class="scc">
+                        <li><a href="#"><i class="fa fa-facebook"></i>              
+                        <li><a href="#"><i class="fa fa-twitter"></i>                   
+                        <li><a href="#"><i class="fa fa-google-plus"></i>
+                        <li><a href="#"><i class="fa fa-linkedin"></i>                      
+                        <li><a href="#"><i class="fa fa-instagram"></i>
+                </ul>   
+                <div class="footer-copyright text-center py-3">© 2019 All Rights Reserved ,Owned By <a href=""><i><b>SNS TECK</b></i></a>
+    </div>
+</footer>
+
+
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script type="text/javascript">
+        $(document).scroll(function() {
+                $('.navbar').toggleClass('scrolled',$(this).scrollTop()>$('.navbar').height());
+        });
+</script>
+
+</html>
